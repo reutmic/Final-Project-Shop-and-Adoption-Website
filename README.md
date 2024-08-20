@@ -1,7 +1,6 @@
-<h1>Ex5 - Spring</h1>
+<h1>Java Spring Project</h1>
 
-<h2>Submitted by: Reut Michaeli</h1>
-<p>Email: reutmi@edu.hac.ac.il</p>
+<h2>Made by: Reut Michaeli</h1>
 
 <h2>Website functionality</h1>
 <p>For this exercise, I made a website for pets adoption and a shop.</p>
@@ -64,21 +63,11 @@
   </li>
 </ul>
 
-
-Link to a demo recording of the website:
-[recording demo](https://www.youtube.com/watch?v=ZciCFsoS9wA)
-
-<p>(https://www.youtube.com/watch?v=ZciCFsoS9wA)</p>
-
-<h3>How To Run</h3>
+<h1>Execution</h1>
+<p>
+In XAMPP, start the 'Apache' and 'MySQL' services. Then, run the project and open 'http://localhost:8080/' in the browser.
+</p>
 <p>There is an initialization file named 'data.sql' in the 'resources' folder. This file is needed to initialize the website's products and pets DB tables.</p>
 <p>I used Spring Security default login/logout pages. When entering the website, the login page will appear. 
 Credentials: Admin role: Username: 'admin', password: 'admin' . User role: Username: 'user', password: 'user'.</p>
 
-<p>I created a doc folder with the JavaDoc, but unfortunately I couldn't push it to github.</p>
-
-
-<h1>Execution</h1>
-<p>
-
-</p>
