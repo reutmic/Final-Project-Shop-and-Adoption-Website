@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Adopt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/CSS/style.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header.html::header"></div>
+<div th:replace="fragments/navbar.html::navbar"></div>
+
+<div class="container">
+    <div class="row text-center mb-3" sec:authorize="hasRole('USER')">
+        <h1>Adopt Today!</h1>
+        <h3>Meet our friends for adoption</h3>
+    </div>
+    <div class="row center" sec:authorize="hasRole('ADMIN')">
+        <h1 class="text-center">Manage Pets For Adoption</h1>
+        <div class="col-12 text-center">
+            <a th:href="@{/admin/registerpet}" class="btn btn-outline-primary btn-lg adminBtn my-3 mb-7">Add Pet</a>
+        </div>
+    </div>
+    <div class="row d-md-none">
+        <div class="col-12 text-center mx-1">
+            <a th:href="@{/shared/adopt/cats}" class="btn btn-outline-primary btn-lg adminBtn my-3 mb-7">Cats</a>
+            <a th:href="@{/shared/adopt/dogs}" class="btn btn-outline-primary btn-lg adminBtn my-3 mb-7">Dogs</a>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-3 d-none d-md-block" ></div>
+        <div class="col-md-3 d-none d-md-block text-center mx-1">
+            <a th:href="@{/shared/adopt/cats}">
+                <button type="button" class="mx-1 btn btn-outline-primary">
+                    <h4 class="text-center">Cats</h4>
+                    <img th:src="@{/images/cats-adopt-button.png}" class="img-fluid mb-3">
+                </button>
+            </a>
+        </div>
+        <div class="col-md-3 d-none d-md-block text-center mx-1">
+            <a th:href="@{/shared/adopt/dogs}">
+                <button type="button" class="mx-1 btn btn-outline-primary">
+                    <h4 class="text-center">Dogs</h4>
+                    <img th:src="@{/images/dogs-adopt-button.png}" class="img-fluid mb-3">
+                </button>
+            </a>
+        </div>
+        <div class="col-md-3 d-none d-md-block"></div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4 shadow">
+        <div th:switch="${pets.size()}" class="col-md-12 mb-4">
+            <h2 th:case="0">No pets for adoption</h2>
+            <div th:case="*">
+                <div class="row">
+                    <div th:each="pet : ${pets}" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card">
+                            <img th:src="@{/images/{image}(image=${pet.image})}" class="card-img-top" alt="Pet Image" style="max-width: 100%; height: auto;">
+                            <div class="card-body">
+                                <h4 class="card-title" th:text="${pet.name}"></h4>
+                                <ul>
+                                    <li th:text="${pet.breed}"></li>
+                                    <li th:text="${pet.gender}"></li>
+                                    <li th:text="'Age: ' + ${pet.age}"></li>
+                                </ul>
+                                <p class="card-text" th:text="${pet.description}"></p>
+
+                                <a th:href="@{/user/meet/{id}(id=${pet.id})}" sec:authorize="hasRole('USER')" class="btn btn-outline-success">Let's Meet!</a>
+
+                                <div sec:authorize="hasRole('ADMIN')">
+                                    <a th:href="@{/admin/updatepet/{id}(id=${pet.id})}" class="btn btn-outline-primary mb-2">Update</a>
+                                    <form action="#" th:action="@{/admin/removepet}" th:object="${pet}" method="post">
+                                        <input type="hidden" name="id" th:value="${pet.id}">
+                                        <input class="btn btn-outline-success btn-lg" type="submit" value="I Was Adopted"/>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+</body>
+</html>

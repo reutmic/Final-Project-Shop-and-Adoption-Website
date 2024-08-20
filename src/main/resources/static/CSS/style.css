@@ -1,0 +1,65 @@
+div.page-header {
+    background-image: url("../images/header-image.png");
+    background-size: cover;
+    /*background-size: contain;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    /*height: 200px;*/
+}
+/*div.page-header {*/
+/*    background-image: url("../images/header-image.png");*/
+/*    background-size: cover;*/
+/*    !*background-size: contain;*!*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    padding-bottom: 10px;*/
+/*    padding-top: 10px;*/
+/*    !*height: 200px;*!*/
+/*}*/
+
+.adminBtn {
+    border: 2px solid;
+    padding: 1em 2em;
+    font-size: 1em;
+    transition: color 0.25s, border-color 0.25s, box-shadow
+    0.25s, transform 0.25s;
+}
+
+.adminBtn:hover {
+    border-color: #9da083;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #9da083;
+    transform: translateY(-0.50em);
+}
+
+.adminNav {
+    /*margin-top: 59px;*/
+    position: sticky;
+    top: 70px;
+    z-index: 1020;
+}
+
+
+.ad {
+    margin-top: 59px;
+    position: sticky;
+    top: 150px;
+    z-index: 1020;
+}
+
+.userBtn:hover {
+    border-color: #9da083;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #9da083;
+    transform: translateY(-0.50em);
+}
+
+.userBtn {
+    border: 2px solid;
+    padding: 1em 1em;
+    font-size: 1em;
+    transition: color 0.25s, border-color 0.25s, box-shadow
+    0.25s, transform 0.25s;
+}
