@@ -1,6 +1,6 @@
 <h1>Java Spring Project</h1>
 
-<h2>Made by: Reut Michaeli</h1>
+<h4>Made by: Reut Michaeli</h4>
 
 <h2>Website functionality</h1>
 <p>For this exercise, I made a website for pets adoption and a shop.</p>
