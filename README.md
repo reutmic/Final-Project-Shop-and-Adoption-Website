@@ -1,9 +1,10 @@
 <h1>Java Spring Project</h1>
+<h2>Pet Friends - A shop and pet adoption website</h2>
 
 <h4>Made by: Reut Michaeli</h4>
 
 <h2>Website functionality</h1>
-<p>For this exercise, I made a website for pets adoption and a shop.</p>
+<p> This is an IntelliJ project .In this project I used Spring MVC, Thymeleaf, and I used XAMPP to create and manage the databases.</p>
 <p>I used Spring Security and created two users:</p>
 <ol>
   <li>
@@ -65,7 +66,8 @@
 
 <h1>Execution</h1>
 <p>
-In XAMPP, start the 'Apache' and 'MySQL' services. Then, run the project and open 'http://localhost:8080/' in the browser.
+Create a new database named "ex5" in XAMPP phpMyAdmin. 
+  In XAMPP, start the 'Apache' and 'MySQL' services. Then, run the project in the IDE and open 'http://localhost:8080/' in the browser.
 </p>
 <p>There is an initialization file named 'data.sql' in the 'resources' folder. This file is needed to initialize the website's products and pets DB tables.</p>
 <p>I used Spring Security default login/logout pages. When entering the website, the login page will appear. 
